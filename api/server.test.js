@@ -2,14 +2,7 @@ const server = require('./server.js')
 const request = require('supertest')
 let data = require('../data/data.js')
 
-beforeEach(() => {
-    data = [
-        { id: 1, beverage: "tea" },
-        { id: 2, beverage: "coffee" },
-        { id: 3, beverage: "water" },
-        { id: 4, beverage: "soda" },
-    ]
-})
+beforeEach(() => {})
 
 describe('[POST] /drinks', () => {
     let res
