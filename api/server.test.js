@@ -1,15 +1,31 @@
 const server = require('./server.js')
 const request = require('supertest')
-const data = require('../data/data.js')
+let data = require('../data/data.js')
+
+beforeEach(() => {
+    data = [
+        { id: 1, beverage: "tea" },
+        { id: 2, beverage: "coffee" },
+        { id: 3, beverage: "water" },
+        { id: 4, beverage: "soda" },
+    ]
+})
 
 describe('[POST] /drinks', () => {
     let res
     beforeEach(async () => {
         res = await request(server).post('/drinks').send({ id: 5, beverage: "juice" })
     })
-    it.todo('responds with status 201')
-    it.todo('adds the create drink to the array')
-    it.todo('responds with the newly inserted drink')
+    it('responds with status 201', () => {
+        expect(res.status).toBe(201)
+    })
+    it('adds the create drink to the array', () => {
+        const drinks = [...data, res.body]
+        expect(drinks).toHaveLength(5)
+    })
+    it('responds with the newly inserted drink', () => {
+        expect(res.body).toMatchObject({ id: 5, beverage: "juice" })
+    })
 })
 
 describe('[DELETE] /drinks', () => {
