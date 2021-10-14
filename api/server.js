@@ -1,5 +1,4 @@
 const express = require('express')
-const drinks = require('../data/data.js')
 const server = express()
 
 server.use(express.json())

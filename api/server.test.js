@@ -1,24 +1,41 @@
 const server = require('./server.js')
 const request = require('supertest')
-let data = require('../data/data.js')
+const db = require('../data/dbConfig')
 
-beforeEach(() => {})
+// beforeAll(async () => {
+//     await db.migrate.rollback()
+//     await db.migrate.latest()
+// })
+
+// beforeEach(async () => {
+//     await db.seed.run()
+// })
+
+// afterAll(async () => {
+//     await db.destroy()
+// })
 
 describe('[POST] /drinks', () => {
-    let res
-    beforeEach(async () => {
-        res = await request(server).post('/drinks').send({ id: 5, beverage: "juice" })
-    })
-    it('responds with status 201', () => {
-        expect(res.status).toBe(201)
-    })
-    it('adds the create drink to the array', () => {
-        const drinks = [...data, res.body]
-        expect(drinks).toHaveLength(5)
-    })
-    it('responds with the newly inserted drink', () => {
-        expect(res.body).toMatchObject({ id: 5, beverage: "juice" })
-    })
+    // let res
+    // beforeEach(async () => {
+    //     res = await request(server).post('/drinks').send({ beverage: "juice" })
+    // })
+    it.todo('responds with status 201'
+    // , () => {
+    //     expect(res.status).toBe(201)
+    // }
+    )
+    it.todo('adds the create drink to the array'
+    // , () => {
+    //     const drinks = db('drinks')
+    //     expect(drinks).toHaveLength(5)
+    // }
+    )
+    it.todo('responds with the newly inserted drink'
+    // , () => {
+    //     expect(res.body).toMatchObject({ id: 5, beverage: "juice" })
+    // }
+    )
 })
 
 describe('[DELETE] /drinks', () => {
