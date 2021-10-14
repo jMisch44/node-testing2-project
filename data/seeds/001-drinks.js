@@ -4,7 +4,7 @@ exports.seed = function(knex) {
   return knex('drinks').del()
     .then(function () {
       // Inserts seed entries
-      return knex('table_name').insert([
+      return knex('drinks').insert([
         {id: 1, beverage: 'tea'},
         {id: 2, beverage: 'coffee'},
         {id: 3, beverage: 'water'}

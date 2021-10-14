@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "description": "Node Server Testing Challenge",
   "scripts": {
+    "migrate": "knex migrate:latest",
+    "seed": "knex seed:run",
     "test": "jest --watch"
   },
   "jest": {
