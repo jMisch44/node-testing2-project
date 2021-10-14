@@ -4,11 +4,11 @@ const server = express()
 
 server.use(express.json())
 
-server.post('/', (req, res) => {
+server.post('/drinks', (req, res) => {
     res.end()
 })
 
-server.delete('/', (req, res) => {
+server.delete('/drinks', (req, res) => {
     res.end()
 })
 
